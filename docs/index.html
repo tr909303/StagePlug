@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StagePlug</title>
-  <link href="https://db.onlinewebfonts.com/c/d2639bbd2646a188110e8270ec817322?family=GAMECUBEN+DualSet" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
@@ -30,43 +29,54 @@
   <div class="video-bg flex items-center justify-center min-h-screen relative">
     <video src="background.mp4" loop autoplay muted playsinline class="absolute top-0 left-0 w-full h-full object-cover"></video>
     <div class="absolute top-0 left-0 w-full h-full bg-black opacity-75"></div>
+    <div class="absolute top-4 right-4 flex space-x-2">
+      <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-4 cursor-pointer" onclick="setLanguage('en')">
+      <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="w-6 h-4 cursor-pointer" onclick="setLanguage('pt')">
+      <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 cursor-pointer" onclick="setLanguage('es')">
+    </div>
+
     <div class="flex flex-col justify-center items-center h-full text-white relative px-6 md:px-12 lg:px-24">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mt-16 mb-8">STAGEPLUG</h1>
-      <p class="text-lg text-center mb-12">YOUR BRIDGE TO EVENTS, LABELS & ARTISTS</p>
+      <img src="img/STAGEPLUG_logo_only.png" alt="StagePlug Logo" class="w-48 mb-6">
+            <p class="text-lg text-center mb-8 tracking-wide uppercase text-gray-300">Your bridge to events, labels & artists — curated and managed for impact.</p>
       <div class="flex gap-4 md:flex-row flex-col btn-container justify-center items-center">
         <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('services')">SERVICES</a>
-        <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('portfolio')">PORTFOLIO</a>
         <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('promotion')">PROMOTION</a>
+        <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('connect')">CONNECT</a>
         <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('contact')">CONTACT</a>
       </div>
 
       <!-- CONTENT SECTIONS -->
-      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="services-content">
-        <h2 class="text-xl font-bold mb-4">Creative & Technical Services</h2>
-        <ul class="list-disc list-inside">
-          <li>Venue rental, sound & light</li>
-          <li>Photo & video production</li>
-          <li>Artist booking, DJ & live acts</li>
-          <li>Design, flyers & branding</li>
+      <div class="content hidden mt-10 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="services-content">
+        <h2 class="text-xl font-bold mb-4">What do you need?</h2>
+        <ul class="list-disc list-inside mt-2">
+          <li><strong>Events:</strong> venue rental, technicians, bar staff</li>
+          <li><strong>Creative Content:</strong> photography, video, design</li>
+          <li><strong>Music Promotion:</strong> social media, press kits, playlist pitching</li>
+          <li><strong>Artists:</strong> DJs, performers, live acts</li>
+          <li><strong>Management & Support:</strong> bookers, legal, admin</li>
         </ul>
       </div>
 
-      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="portfolio-content">
-        <h2 class="text-xl font-bold mb-4">StagePlug Projects</h2>
-        <p>Browse selected events, brand launches, and artist showcases curated by StagePlug.</p>
-      </div>
-
-      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="promotion-content">
-        <h2 class="text-xl font-bold mb-4">Music Promotion</h2>
+      <div class="content hidden mt-10 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="promotion-content">
+        <h2 class="text-xl font-bold mb-4">Promote Your Music</h2>
         <ul class="list-disc list-inside">
-          <li>Social media strategy & campaigns</li>
-          <li>Playlist submission & radio pitching</li>
-          <li>Press kits, releases & PR</li>
-          <li>Cover design & digital assets</li>
+          <li>Visual identity creation</li>
+          <li>Digital promotion (reels, teasers)</li>
+          <li>Social media management</li>
+          <li>Media outreach</li>
         </ul>
       </div>
 
-      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="contact-content">
+      <div class="content hidden mt-10 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="connect-content">
+        <h2 class="text-xl font-bold mb-4">Connect</h2>
+        <ul class="list-disc list-inside">
+          <li>Blog with tips</li>
+          <li>StagePlug announcements</li>
+          <li>Client stories and past projects</li>
+        </ul>
+      </div>
+
+      <div class="content hidden mt-10 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="contact-content">
         <h2 class="text-xl font-bold mb-4">Get in Touch</h2>
         <p>Email us at <a href="mailto:hello@stageplug.com" class="underline">hello@stageplug.com</a></p>
       </div>
@@ -92,12 +102,15 @@
         contentElements[i].style.display = 'none';
       }
       const selectedContent = document.getElementById(`${contentType}-content`);
-      selectedContent.style.display = 'block';
+      if (selectedContent) {
+        selectedContent.style.display = 'block';
+      }
+    }
+
+    function setLanguage(lang) {
+      alert('Language switching not yet implemented. Selected: ' + lang);
     }
   </script>
 </body>
 
 </html>
-
- 
- 
