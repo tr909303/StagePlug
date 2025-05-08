@@ -4,16 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CEREBELLUM TRAX</title>
-  <!-- Link to Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>StagePlug</title>
   <link href="https://db.onlinewebfonts.com/c/d2639bbd2646a188110e8270ec817322?family=GAMECUBEN+DualSet" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
-    /* Additional CSS styles, if any */
-    /* Add any custom styles here */
-
     @media (max-width: 640px) {
       .video-bg {
         height: auto;
@@ -31,73 +26,66 @@
   </style>
 </head>
 
-<body>
-  <div class="video-bg flex items-center justify-center min-h-screen">
-    <!-- Video background code -->
-    <video src="landscape.mp4" loop autoplay muted playsinline class="absolute top-0 left-0 w-full h-full object-cover"></video>
+<body class="bg-black text-white">
+  <div class="video-bg flex items-center justify-center min-h-screen relative">
+    <video src="background.mp4" loop autoplay muted playsinline class="absolute top-0 left-0 w-full h-full object-cover"></video>
     <div class="absolute top-0 left-0 w-full h-full bg-black opacity-75"></div>
-    <!-- Content container -->
     <div class="flex flex-col justify-center items-center h-full text-white relative px-6 md:px-12 lg:px-24">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mt-16 mb-8">CEREBELLUM</h1>
-      <p class="text-lg text-center mb-12">WEBSITE UNDER CONSTRUCTION</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mt-16 mb-8">STAGEPLUG</h1>
+      <p class="text-lg text-center mb-12">YOUR BRIDGE TO EVENTS, LABELS & ARTISTS</p>
       <div class="flex gap-4 md:flex-row flex-col btn-container justify-center items-center">
-        <a href="#" class="btn btn-primary text-lg px-8 py-3 rounded-full bg-green-500 hover:bg-green-600 text-black hover:text-white transition-all duration-300"
-          onclick="showContent('home')">HOME</a>
-        <a href="#" class="btn btn-primary text-lg px-8 py-3 rounded-full bg-green-500 hover:bg-green-600 text-black hover:text-white transition-all duration-300"
-          onclick="showContent('music')">MUSIC</a>
-        <a href="#" class="btn btn-primary text-lg px-8 py-3 rounded-full bg-green-500 hover:bg-green-600 text-black hover:text-white transition-all duration-300"
-          onclick="showContent('sample-packs')">SAMPLES</a>
-        <a href="#" class="btn btn-primary text-lg px-8 py-3 rounded-full bg-green-500 hover:bg-green-600 text-black hover:text-white transition-all duration-300"
-          onclick="showContent('contacts')">CONTACTS</a>
+        <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('services')">SERVICES</a>
+        <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('portfolio')">PORTFOLIO</a>
+        <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('promotion')">PROMOTION</a>
+        <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('contact')">CONTACT</a>
       </div>
 
-      <!-- Content sections -->
-      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="home-content">
-        <h2 class="text-xl font-bold mb-4">Welcome to Cerebellum</h2>
-        <p>Welcome Cerebellum</p>
+      <!-- CONTENT SECTIONS -->
+      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="services-content">
+        <h2 class="text-xl font-bold mb-4">Creative & Technical Services</h2>
+        <ul class="list-disc list-inside">
+          <li>Venue rental, sound & light</li>
+          <li>Photo & video production</li>
+          <li>Artist booking, DJ & live acts</li>
+          <li>Design, flyers & branding</li>
+        </ul>
       </div>
-      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="music-content">
-        <h2 class="text-xl font-bold mb-4">Check out our latest music releases!</h2>
-        <div class="flex gap-4 md:flex-row flex-col btn-container justify-center">
-          <a href="http://cerebellumtrax.bandcamp.com" class="btn btn-primary text-lg px-8 py-3 rounded-full bg-blue-500 hover:bg-blue-600 text-white hover:text-black transition-all duration-300">
-      <i class="fab fa-bandcamp mr-2"></i>
-            Bandcamp
-          </a>
-          <a href="https://www.youtube.com/@cerebellumtrax" class="btn btn-primary text-lg px-8 py-3 rounded-full bg-red-600 hover:bg-red-700 text-white hover:text-black transition-all duration-300">
-            <i class="fab fa-youtube mr-2"></i>
-            YouTube
-          </a>
-        </div>
+
+      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="portfolio-content">
+        <h2 class="text-xl font-bold mb-4">StagePlug Projects</h2>
+        <p>Browse selected events, brand launches, and artist showcases curated by StagePlug.</p>
       </div>
-      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="sample-packs-content">
-        <h2 class="text-xl font-bold mb-4">Explore our sample packs collection!</h2>
-        <p>SAMPLE PACKS SOON HERE AND BANDCAMP</p>
+
+      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="promotion-content">
+        <h2 class="text-xl font-bold mb-4">Music Promotion</h2>
+        <ul class="list-disc list-inside">
+          <li>Social media strategy & campaigns</li>
+          <li>Playlist submission & radio pitching</li>
+          <li>Press kits, releases & PR</li>
+          <li>Cover design & digital assets</li>
+        </ul>
+      </div>
+
+      <div class="content hidden mt-8 p-4 border border-white rounded-lg max-w-md" id="contact-content">
+        <h2 class="text-xl font-bold mb-4">Get in Touch</h2>
+        <p>Email us at <a href="mailto:hello@stageplug.com" class="underline">hello@stageplug.com</a></p>
       </div>
     </div>
   </div>
 
-  <footer class="py-2 sm:py-4 absolute bottom-0 w-full" style="background-color: transparent; color: white; text-align: center;">
+  <footer class="py-4 absolute bottom-0 w-full text-center text-gray-400">
     <div class="container mx-auto px-6">
-      <div class="footer-content flex flex-wrap justify-center items-center">
-        <div class="w-full text-center sm:text-left mb-2 sm:mb-0">
-          <h4 class="text-lg font-bold">Follow Us</h4>
-          <div class="flex justify-center sm:justify-start mt-2 footer-icons">
-            <!-- Font Awesome Icons for social media -->
-            <a href="#" class="text-white mr-2 hover:text-gray-400"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-white mr-2 hover:text-gray-400"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white mr-2 hover:text-gray-400"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
+      <div class="flex justify-center space-x-4">
+        <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-soundcloud"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-facebook"></i></a>
       </div>
-      <div class="text-center mt-2 sm:mt-4">
-        <p class="text-xs sm:text-sm text-gray-400">All rights reserved &copy; 2024 Cerebellum</p>
-      </div>
+      <p class="text-xs mt-2">&copy; 2025 StagePlug. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    // Function to handle content display
     function showContent(contentType) {
       const contentElements = document.getElementsByClassName('content');
       for (let i = 0; i < contentElements.length; i++) {
@@ -110,3 +98,6 @@
 </body>
 
 </html>
+
+ 
+ 
