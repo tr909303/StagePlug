@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cerebellum Trax Promo - Download the latest tracks and leave your feedback.">
+    <meta name="keywords" content="Cerebellum, Trax, Promo, Music, Download, Feedback">
+    <title>CEREBELLUM TRAX PROMO</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <style>
+        /* Garantir que o vídeo cubra toda a área de fundo */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -10; /* Coloca o vídeo atrás de todo o conteúdo */
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-600 font-body">
+    <!-- Vídeo de fundo -->
+    <video id="backgroundVideo" src="visual007.mp4" loop autoplay muted playsinline class="video-background"></video>
+
+    <main class="ml-4 mr-4 lg:ml-64 lg:mr-64 bg-black bg-opacity-75 relative z-10">
+        <div class="mb-4">
+            <div class="flex justify-between items-center">
+                <img src="img/SOUNDCLOUD002.png" alt="Cerebellum Logo" class="w-90">
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <!-- First Column -->
+            <div class="w-full">
+                <img src="img/slide7.png" alt="Cerebellum Promo Art" class="w-full">
+            </div>
+
+            <!-- Second Column -->
+            <div class="w-full">
+                <!-- SoundCloud iframe and description -->
+                <div>
+                   <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2011081755%3Fsecret_token%3Ds-GVdPTwXRIoq&color=%23414141&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/cerebellum-recs" title="Cerebellum Recs" target="_blank" style="color: #cccccc; text-decoration: none;">Cerebellum Recs</a> · <a href="https://soundcloud.com/cerebellum-recs/sets/revela-ep/s-GVdPTwXRIoq" title="REVELA EP" target="_blank" style="color: #cccccc; text-decoration: none;">REVELA EP</a></div>
+                    <div class="mt-4 text-white">
+                        DOWNLOAD WAV FILE HERE FROM SOUNDCLOUD, PLEASE DON'T FORGET TO LEAVE FEEDBACK.
+                    </div>
+                </div>
+                <div class="flex justify-center items-center mt-6">
+                    <a id="downloadBtn" href="downloads/CRBLM006. FRANK MAUREL - DONT MAKE EP (mp3).zip" class="bg-blue-800 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full ml-4 disabled:opacity-50 disabled:cursor-not-allowed" download>
+                        DOWNLOAD MP3 (feedback)
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Form -->
+        <div class="mt-6">
+            <form id="contact-form" action="https://formspree.io/f/xdkgozrk" method="POST" class="mx-auto">
+                <div class="form-group mb-6">
+                    <input type="text" name="name" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Name" required>
+                </div>
+                <div class="form-group mb-6">
+                    <input type="email" name="email" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Email Address" required>
+                </div>
+                <div class="form-group mb-6">
+                    <textarea name="Feedback" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-yellow-500 focus:outline-none" rows="3" placeholder="Feedback" required></textarea>
+                </div>
+                <button type="submit" class="w-full px-6 py-2.5 bg-blue-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-600 active:shadow-lg transition duration-150 ease-in-out">Send</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="flex flex-col items-center bg-black text-center text-white py-6 relative z-10">
+        <div class="container px-6 pt-6">
+            <div class="mb-6 flex justify-center">
+                <a href="#!" class="m-1 h-9 w-9 rounded-full border-2 border-white text-white flex justify-center items-center transition duration-150 ease-in-out hover:bg-opacity-5 focus:outline-none" aria-label="Instagram">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="#!" class="m-1 h-9 w-9 rounded-full border-2 border-white text-white flex justify-center items-center transition duration-150 ease-in-out hover:bg-opacity-5 focus:outline-none" aria-label="SoundCloud">
+                    <ion-icon name="logo-soundcloud"></ion-icon>
+                </a>
+                <!-- Add more social icons as needed -->
+            </div>
+        </div>
+        <div class="w-full p-4">
+            © 2024 Copyright:
+            <a class="text-white hover:underline" href="#">Cerebellum</a>
+        </div>
+    </footer>
+
+    <script>
+        // Disable download button after first click
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            this.disabled = true;
+            this.classList.add('disabled');
+        });
+    </script>
+</body>
+</html>

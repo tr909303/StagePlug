@@ -1,0 +1,118 @@
+@font-face {
+  font-family: "GAMECUBEN DualSet";
+  src: url("https://db.onlinewebfonts.com/t/d2639bbd2646a188110e8270ec817322.eot");
+  src: url("https://db.onlinewebfonts.com/t/d2639bbd2646a188110e8270ec817322.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/d2639bbd2646a188110e8270ec817322.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/d2639bbd2646a188110e8270ec817322.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/d2639bbd2646a188110e8270ec817322.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/d2639bbd2646a188110e8270ec817322.svg#GAMECUBEN DualSet") format("svg");
+}
+
+/* Apply the font-family to elements */
+body {
+  font-family: "GAMECUBEN DualSet", sans-serif;
+}
+
+/* Center the "HAZE" heading and social media icons */
+.video-bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Add this style to center the social media icons in the footer */
+.footer-icons {
+  display: flex;
+  justify-content: center;
+}
+
+/* Optional: Adjust the icon size if needed */
+.footer-icons a {
+  font-size: 24px;
+  margin: 0 8px; /* Adjust the margin as per your preference */
+}
+
+/* Responsive for 1024px resolution */
+@media (max-width: 1024px) {
+  .flex-col {
+    flex-direction: column;
+  }
+  .md:justify-start {
+    justify-content: flex-start;
+  }
+  .md:text-left {
+    text-align: left;
+  }
+  .md:text-right {
+    text-align: right;
+  }
+}
+
+/* Center the content within the .video-bg element */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.content {
+  max-width: 600px; /* Adjust the max-width as per your preference */
+  width: 100%;
+}
+
+/* Updated styles to center the "Follow Us" heading and social media icons */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+}
+
+/* Center the "Follow Us" heading */
+.footer-content h4 {
+  text-align: center;
+  color: white; /* Set the text color to white */
+}
+
+/* Center the social media icons */
+.footer-icons {
+  margin-top: 8px; /* Adjust the margin as needed */
+}
+
+/* Responsive adjustments for the footer */
+@media (max-width: 640px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: center;
+  }
+  .text-right {
+    text-align: center;
+  }
+  .footer-icons {
+    margin-top: 8px;
+  }
+  .text-xs {
+    font-size: 12px;
+  }
+}
+
+/* Styles to make the footer transparent */
+footer {
+  background-color: transparent;
+  color: white; /* Set the text color to white */
+  text-align: center; /* Center the content of the footer horizontally */
+  padding: 10px 0; /* Adjust the internal spacing as needed */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
