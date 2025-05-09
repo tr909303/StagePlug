@@ -31,13 +31,21 @@
     }
 
     section {
-      padding-top: 100px;
+      scroll-margin-top: 120px;
+      padding-top: 40px;
       min-height: 100vh;
     }
   </style>
 </head>
 
 <body class="bg-black text-white">
+  <!-- LANGUAGE SELECTOR -->
+  <div class="fixed top-4 right-4 z-50 flex space-x-2">
+    <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-4 cursor-pointer" onclick="setLanguage('en')">
+    <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="w-6 h-4 cursor-pointer" onclick="setLanguage('pt')">
+    <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 cursor-pointer" onclick="setLanguage('es')">
+  </div>
+
   <!-- NAVIGATION -->
   <nav class="bg-black bg-opacity-80 backdrop-blur shadow-md py-4">
     <div class="container mx-auto flex items-center justify-between px-6">
@@ -65,13 +73,7 @@
   <section id="services" class="px-6">
     <div class="max-w-2xl mx-auto bg-black bg-opacity-80 p-6 rounded-xl text-white shadow-lg">
       <h2 id="services-title" class="text-xl font-bold mb-4">What do you need?</h2>
-      <ul id="services-list" class="list-disc list-inside">
-        <li><strong>Events:</strong> venue rental, technicians, bar staff</li>
-        <li><strong>Creative Content:</strong> photography, video, design</li>
-        <li><strong>Music Promotion:</strong> social media, press kits, playlist pitching</li>
-        <li><strong>Artists:</strong> DJs, performers, live acts</li>
-        <li><strong>Management & Support:</strong> bookers, legal, admin</li>
-      </ul>
+      <ul id="services-list" class="list-disc list-inside"></ul>
     </div>
   </section>
 
@@ -115,6 +117,64 @@
     </div>
     <p class="text-xs mt-2">&copy; 2025 StagePlug. All rights reserved.</p>
   </footer>
+
+  <!-- LANGUAGE SCRIPT -->
+  <script>
+    const translations = {
+      en: {
+        tagline: "Your bridge to events, labels & artists — curated and managed for impact.",
+        servicesTitle: "What do you need?",
+        servicesItems: [
+          "<strong>Events:</strong> venue rental, technicians, bar staff",
+          "<strong>Creative Content:</strong> photography, video, design",
+          "<strong>Music Promotion:</strong> social media, press kits, playlist pitching",
+          "<strong>Artists:</strong> DJs, performers, live acts",
+          "<strong>Management & Support:</strong> bookers, legal, admin"
+        ]
+      },
+      pt: {
+        tagline: "A tua ponte para eventos, editoras e artistas — com curadoria e gestão de impacto.",
+        servicesTitle: "Do que precisas?",
+        servicesItems: [
+          "<strong>Eventos:</strong> aluguer de espaço, técnicos, bar",
+          "<strong>Conteúdo Criativo:</strong> fotografia, vídeo, design",
+          "<strong>Promoção Musical:</strong> redes sociais, press kits, playlists",
+          "<strong>Artistas:</strong> DJs, performers, bandas",
+          "<strong>Gestão e Suporte:</strong> bookers, jurídico, administração"
+        ]
+      },
+      es: {
+        tagline: "Tu puente hacia eventos, sellos y artistas — curado y gestionado con impacto.",
+        servicesTitle: "¿Qué necesitas?",
+        servicesItems: [
+          "<strong>Eventos:</strong> alquiler de espacio, técnicos, barra",
+          "<strong>Contenido Creativo:</strong> fotografía, vídeo, diseño",
+          "<strong>Promoción Musical:</strong> redes sociales, press kits, playlists",
+          "<strong>Artistas:</strong> DJs, performers, bandas",
+          "<strong>Gestión y Soporte:</strong> bookers, legal, administración"
+        ]
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      if (!t) return;
+
+      document.getElementById("tagline").textContent = t.tagline;
+      document.getElementById("services-title").textContent = t.servicesTitle;
+
+      const list = document.getElementById("services-list");
+      list.innerHTML = "";
+      t.servicesItems.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = item;
+        list.appendChild(li);
+      });
+    }
+
+    // Inicialização
+    setLanguage('en');
+  </script>
 </body>
 
 </html>
