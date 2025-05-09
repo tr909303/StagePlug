@@ -2,22 +2,27 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StagePlug</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <meta name="description" content="StagePlug connects events, artists, and music professionals — from promotion to full-service event support." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <style>
     @media (max-width: 640px) {
       .video-bg {
         height: auto;
       }
+
       .content {
         max-width: 100%;
       }
+
       .btn {
         width: 100%;
       }
+
       .btn-container {
         flex-direction: column;
       }
@@ -26,23 +31,25 @@
 </head>
 
 <body class="bg-black text-white">
-  <div class="video-bg flex items-center justify-center min-h-screen relative">
+  <main class="video-bg flex items-center justify-center min-h-screen relative">
     <video src="background.mp4" loop autoplay muted playsinline class="absolute top-0 left-0 w-full h-full object-cover"></video>
     <div class="absolute top-0 left-0 w-full h-full bg-black opacity-75"></div>
-    <div class="absolute top-4 right-4 flex space-x-2">
-      <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-4 cursor-pointer" onclick="setLanguage('en')">
-      <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="w-6 h-4 cursor-pointer" onclick="setLanguage('pt')">
-      <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 cursor-pointer" onclick="setLanguage('es')">
-    </div>
 
-    <div class="flex flex-col justify-center items-center h-full text-white relative px-6 md:px-12 lg:px-24">
-      <img src="img/STAGEPLUG_logo_only.png" alt="StagePlug Logo" class="w-48 mb-6">
-            <p class="text-lg text-center mb-8 tracking-wide uppercase text-gray-300">Your bridge to events, labels & artists — curated and managed for impact.</p>
-      <div class="flex gap-4 md:flex-row flex-col btn-container justify-center items-center">
-        <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('services')">SERVICES</a>
-        <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('promotion')">PROMOTION</a>
-        <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('connect')">CONNECT</a>
-        <a href="#" class="btn text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('contact')">CONTACT</a>
+    <nav class="absolute top-4 right-4 flex space-x-2" aria-label="Language selector">
+      <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-4 cursor-pointer" onclick="setLanguage('en')" />
+      <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="w-6 h-4 cursor-pointer" onclick="setLanguage('pt')" />
+      <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 cursor-pointer" onclick="setLanguage('es')" />
+    </nav>
+
+    <section class="flex flex-col justify-center items-center h-full text-white relative px-6 md:px-12 lg:px-24 text-center w-full">
+      <img src="img/STAGEPLUG_logo_only.png" alt="StagePlug Logo" class="w-48 mb-6" />
+      <p class="text-lg text-center mb-8 tracking-wide uppercase text-gray-300">Your bridge to events, labels & artists — curated and managed for impact.</p>
+
+      <div class="flex gap-4 md:flex-row flex-col btn-container justify-center items-center w-full text-center">
+        <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('services')">SERVICES</a>
+        <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('promotion')">PROMOTION</a>
+        <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('connect')">CONNECT</a>
+        <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('contact')">CONTACT</a>
       </div>
 
       <!-- CONTENT SECTIONS -->
@@ -80,16 +87,16 @@
         <h2 class="text-xl font-bold mb-4">Get in Touch</h2>
         <p>Email us at <a href="mailto:hello@stageplug.com" class="underline">hello@stageplug.com</a></p>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
   <footer class="py-4 absolute bottom-0 w-full text-center text-gray-400">
     <div class="container mx-auto px-6">
       <div class="flex justify-center space-x-4">
-        <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="hover:text-white"><i class="fab fa-soundcloud"></i></a>
-        <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="hover:text-white"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Instagram" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="SoundCloud" class="hover:text-white"><i class="fab fa-soundcloud"></i></a>
+        <a href="#" aria-label="YouTube" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="Facebook" class="hover:text-white"><i class="fab fa-facebook"></i></a>
       </div>
       <p class="text-xs mt-2">&copy; 2025 StagePlug. All rights reserved.</p>
     </div>
@@ -97,18 +104,15 @@
 
   <script>
     function showContent(contentType) {
-      const contentElements = document.getElementsByClassName('content');
-      for (let i = 0; i < contentElements.length; i++) {
-        contentElements[i].style.display = 'none';
-      }
-      const selectedContent = document.getElementById(`${contentType}-content`);
-      if (selectedContent) {
-        selectedContent.style.display = 'block';
-      }
+      document.querySelectorAll('.content').forEach(el => el.classList.add('hidden'));
+      const selected = document.getElementById(`${contentType}-content`);
+      if (selected) selected.classList.remove('hidden');
     }
 
     function setLanguage(lang) {
-      alert('Language switching not yet implemented. Selected: ' + lang);
+      console.log(`Language selected: ${lang}`);
+      // Simulate language change with a toast or placeholder message
+      alert(`Language switching for "${lang}" is coming soon!`);
     }
   </script>
 </body>
