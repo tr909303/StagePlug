@@ -48,19 +48,15 @@
     </div>
   </header>
 
-  <!-- CONTENT SECTIONS -->
-  <main class="pt-64 flex flex-col items-center text-white px-6 md:px-12 lg:px-24 text-center w-full">
-    <p class="text-lg text-center mb-8 tracking-wide uppercase text-gray-300 max-w-xl">Your bridge to events, labels & artists — curated and managed for impact.</p>
+  <!-- CONTENT -->
+  <main class="pt-64 min-h-[calc(100vh-256px)] flex flex-col items-center text-white px-6 md:px-12 lg:px-24 text-center w-full">
+    <p id="tagline" class="text-lg text-center mb-8 tracking-wide uppercase text-gray-300 max-w-xl">
+      Your bridge to events, labels & artists — curated and managed for impact.
+    </p>
 
     <div class="content hidden mt-6 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="services-content">
-      <h2 class="text-xl font-bold mb-4">What do you need?</h2>
-      <ul class="list-disc list-inside mt-2 text-left">
-        <li><strong>Events:</strong> venue rental, technicians, bar staff</li>
-        <li><strong>Creative Content:</strong> photography, video, design</li>
-        <li><strong>Music Promotion:</strong> social media, press kits, playlist pitching</li>
-        <li><strong>Artists:</strong> DJs, performers, live acts</li>
-        <li><strong>Management & Support:</strong> bookers, legal, admin</li>
-      </ul>
+      <h2 id="services-title" class="text-xl font-bold mb-4">What do you need?</h2>
+      <ul id="services-list" class="list-disc list-inside mt-2 text-left"></ul>
     </div>
 
     <div class="content hidden mt-6 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="promotion-content">
@@ -103,15 +99,69 @@
 
   <!-- SCRIPT -->
   <script>
+    const translations = {
+      en: {
+        tagline: "Your bridge to events, labels & artists — curated and managed for impact.",
+        servicesTitle: "What do you need?",
+        servicesItems: [
+          "<strong>Events:</strong> venue rental, technicians, bar staff",
+          "<strong>Creative Content:</strong> photography, video, design",
+          "<strong>Music Promotion:</strong> social media, press kits, playlist pitching",
+          "<strong>Artists:</strong> DJs, performers, live acts",
+          "<strong>Management & Support:</strong> bookers, legal, admin"
+        ]
+      },
+      pt: {
+        tagline: "A tua ponte para eventos, editoras e artistas — com curadoria e gestão de impacto.",
+        servicesTitle: "Do que precisas?",
+        servicesItems: [
+          "<strong>Eventos:</strong> aluguer de espaço, técnicos, bar",
+          "<strong>Conteúdo Criativo:</strong> fotografia, vídeo, design",
+          "<strong>Promoção Musical:</strong> redes sociais, press kits, playlists",
+          "<strong>Artistas:</strong> DJs, performers, bandas",
+          "<strong>Gestão e Suporte:</strong> bookers, jurídico, administração"
+        ]
+      },
+      es: {
+        tagline: "Tu puente hacia eventos, sellos y artistas — curado y gestionado con impacto.",
+        servicesTitle: "¿Qué necesitas?",
+        servicesItems: [
+          "<strong>Eventos:</strong> alquiler de espacio, técnicos, barra",
+          "<strong>Contenido Creativo:</strong> fotografía, vídeo, diseño",
+          "<strong>Promoción Musical:</strong> redes sociales, press kits, playlists",
+          "<strong>Artistas:</strong> DJs, performers, bandas",
+          "<strong>Gestión y Soporte:</strong> bookers, legal, administración"
+        ]
+      }
+    };
+
     function showContent(contentType) {
       document.querySelectorAll('.content').forEach(el => el.classList.add('hidden'));
       const selected = document.getElementById(`${contentType}-content`);
-      if (selected) selected.classList.remove('hidden');
+      if (selected) {
+        selected.classList.remove('hidden');
+        selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
 
     function setLanguage(lang) {
-      alert(`Language switching for "${lang}" is coming soon!`);
+      const t = translations[lang];
+      if (!t) return;
+
+      document.getElementById("tagline").textContent = t.tagline;
+      document.getElementById("services-title").textContent = t.servicesTitle;
+
+      const list = document.getElementById("services-list");
+      list.innerHTML = "";
+      t.servicesItems.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = item;
+        list.appendChild(li);
+      });
     }
+
+    // Set default language
+    setLanguage('en');
   </script>
 
 </body>
