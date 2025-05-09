@@ -1,165 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StagePlug</title>
-  <meta name="description" content="StagePlug connects events, artists, and music professionals — from promotion to full-service event support." />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
-    @media (max-width: 640px) {
-      .btn {
-        width: 100%;
-      }
-      .btn-container {
-        flex-direction: column;
-      }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+    }
+
+    section {
+      padding-top: 100px;
+      min-height: 100vh;
     }
   </style>
 </head>
 
 <body class="bg-black text-white">
-
-  <!-- Background Video -->
-  <div class="fixed top-0 left-0 w-full h-full -z-10">
-    <video src="background.mp4" loop autoplay muted playsinline class="w-full h-full object-cover"></video>
-    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-75"></div>
-  </div>
-
-  <!-- Language Selector -->
-  <nav class="fixed top-4 right-4 z-30 flex space-x-2" aria-label="Language selector">
-    <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-4 cursor-pointer" onclick="setLanguage('en')" />
-    <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="w-6 h-4 cursor-pointer" onclick="setLanguage('pt')" />
-    <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 cursor-pointer" onclick="setLanguage('es')" />
+  <!-- NAVIGATION -->
+  <nav class="bg-black bg-opacity-80 backdrop-blur shadow-md py-4">
+    <div class="container mx-auto flex items-center justify-between px-6">
+      <img src="img/STAGEPLUG_logo_only.png" alt="StagePlug Logo" class="w-28">
+      <ul class="flex space-x-6">
+        <li><a href="#services" class="text-white hover:text-gray-300">SERVICES</a></li>
+        <li><a href="#promotion" class="text-white hover:text-gray-300">PROMOTION</a></li>
+        <li><a href="#connect" class="text-white hover:text-gray-300">CONNECT</a></li>
+        <li><a href="#contact" class="text-white hover:text-gray-300">CONTACT</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- Fixed Menu -->
-  <header class="fixed top-0 left-0 w-full z-20 flex flex-col items-center bg-black/70 backdrop-blur px-4 pt-6 pb-4">
-    <img src="img/STAGEPLUG_logo_only.png" alt="StagePlug Logo" class="w-32 mb-4" />
-    <div class="flex gap-4 md:flex-row flex-col btn-container justify-center items-center w-full text-center">
-      <button class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('services')">SERVICES</button>
-      <button class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('promotion')">PROMOTION</button>
-      <button class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('connect')">CONNECT</button>
-      <button class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('contact')">CONTACT</button>
-    </div>
+  <!-- VIDEO BACKGROUND -->
+  <div class="fixed top-0 left-0 w-full h-full -z-10">
+    <video src="background.mp4" autoplay loop muted class="object-cover w-full h-full"></video>
+    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70"></div>
+  </div>
+
+  <!-- TAGLINE -->
+  <header class="pt-40 text-center px-6">
+    <h1 id="tagline" class="text-2xl max-w-2xl mx-auto text-gray-300">Your bridge to events, labels & artists — curated and managed for impact.</h1>
   </header>
 
-  <!-- Content -->
-  <main class="pt-64 min-h-[calc(100vh-256px)] flex flex-col items-center text-white px-6 md:px-12 lg:px-24 text-center w-full">
-    <p id="tagline" class="text-lg text-center mb-8 tracking-wide uppercase text-gray-300 max-w-xl">
-      Your bridge to events, labels & artists — curated and managed for impact.
-    </p>
-
-    <div class="content hidden mt-6 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="services-content">
+  <!-- SECTIONS -->
+  <section id="services" class="px-6">
+    <div class="max-w-2xl mx-auto">
       <h2 id="services-title" class="text-xl font-bold mb-4">What do you need?</h2>
-      <ul id="services-list" class="list-disc list-inside mt-2 text-left"></ul>
+      <ul id="services-list" class="list-disc list-inside">
+        <li><strong>Events:</strong> venue rental, technicians, bar staff</li>
+        <li><strong>Creative Content:</strong> photography, video, design</li>
+        <li><strong>Music Promotion:</strong> social media, press kits, playlist pitching</li>
+        <li><strong>Artists:</strong> DJs, performers, live acts</li>
+        <li><strong>Management & Support:</strong> bookers, legal, admin</li>
+      </ul>
     </div>
+  </section>
 
-    <div class="content hidden mt-6 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="promotion-content">
+  <section id="promotion" class="px-6">
+    <div class="max-w-2xl mx-auto">
       <h2 class="text-xl font-bold mb-4">Promote Your Music</h2>
-      <ul class="list-disc list-inside text-left">
+      <ul class="list-disc list-inside">
         <li>Visual identity creation</li>
         <li>Digital promotion (reels, teasers)</li>
         <li>Social media management</li>
         <li>Media outreach</li>
       </ul>
     </div>
+  </section>
 
-    <div class="content hidden mt-6 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="connect-content">
+  <section id="connect" class="px-6">
+    <div class="max-w-2xl mx-auto">
       <h2 class="text-xl font-bold mb-4">Connect</h2>
-      <ul class="list-disc list-inside text-left">
+      <ul class="list-disc list-inside">
         <li>Blog with tips</li>
         <li>StagePlug announcements</li>
         <li>Client stories and past projects</li>
       </ul>
     </div>
+  </section>
 
-    <div class="content hidden mt-6 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="contact-content">
+  <section id="contact" class="px-6">
+    <div class="max-w-2xl mx-auto">
       <h2 class="text-xl font-bold mb-4">Get in Touch</h2>
       <p>Email us at <a href="mailto:hello@stageplug.com" class="underline">hello@stageplug.com</a></p>
     </div>
-  </main>
+  </section>
 
-  <!-- Footer -->
-  <footer class="py-4 w-full text-center text-gray-400 mt-16">
-    <div class="container mx-auto px-6">
-      <div class="flex justify-center space-x-4">
-        <a href="#" aria-label="Instagram" class="hover:text-white"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="SoundCloud" class="hover:text-white"><i class="fab fa-soundcloud"></i></a>
-        <a href="#" aria-label="YouTube" class="hover:text-white"><i class="fab fa-youtube"></i></a>
-        <a href="#" aria-label="Facebook" class="hover:text-white"><i class="fab fa-facebook"></i></a>
-      </div>
-      <p class="text-xs mt-2">&copy; 2025 StagePlug. All rights reserved.</p>
+  <!-- FOOTER -->
+  <footer class="text-center py-6 text-gray-400">
+    <div class="flex justify-center space-x-4">
+      <a href="#" aria-label="Instagram" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="SoundCloud" class="hover:text-white"><i class="fab fa-soundcloud"></i></a>
+      <a href="#" aria-label="YouTube" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+      <a href="#" aria-label="Facebook" class="hover:text-white"><i class="fab fa-facebook"></i></a>
     </div>
+    <p class="text-xs mt-2">&copy; 2025 StagePlug. All rights reserved.</p>
   </footer>
-
-  <!-- Scripts -->
-  <script>
-    const translations = {
-      en: {
-        tagline: "Your bridge to events, labels & artists — curated and managed for impact.",
-        servicesTitle: "What do you need?",
-        servicesItems: [
-          "<strong>Events:</strong> venue rental, technicians, bar staff",
-          "<strong>Creative Content:</strong> photography, video, design",
-          "<strong>Music Promotion:</strong> social media, press kits, playlist pitching",
-          "<strong>Artists:</strong> DJs, performers, live acts",
-          "<strong>Management & Support:</strong> bookers, legal, admin"
-        ]
-      },
-      pt: {
-        tagline: "A tua ponte para eventos, editoras e artistas — com curadoria e gestão de impacto.",
-        servicesTitle: "Do que precisas?",
-        servicesItems: [
-          "<strong>Eventos:</strong> aluguer de espaço, técnicos, bar",
-          "<strong>Conteúdo Criativo:</strong> fotografia, vídeo, design",
-          "<strong>Promoção Musical:</strong> redes sociais, press kits, playlists",
-          "<strong>Artistas:</strong> DJs, performers, bandas",
-          "<strong>Gestão e Suporte:</strong> bookers, jurídico, administração"
-        ]
-      },
-      es: {
-        tagline: "Tu puente hacia eventos, sellos y artistas — curado y gestionado con impacto.",
-        servicesTitle: "¿Qué necesitas?",
-        servicesItems: [
-          "<strong>Eventos:</strong> alquiler de espacio, técnicos, barra",
-          "<strong>Contenido Creativo:</strong> fotografía, vídeo, diseño",
-          "<strong>Promoción Musical:</strong> redes sociales, press kits, playlists",
-          "<strong>Artistas:</strong> DJs, performers, bandas",
-          "<strong>Gestión y Soporte:</strong> bookers, legal, administración"
-        ]
-      }
-    };
-
-    function showContent(contentType) {
-      document.querySelectorAll('.content').forEach(el => el.classList.add('hidden'));
-      const selected = document.getElementById(`${contentType}-content`);
-      if (selected) {
-        selected.classList.remove('hidden');
-        selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    function setLanguage(lang) {
-      const t = translations[lang];
-      if (!t) return;
-
-      document.getElementById("tagline").textContent = t.tagline;
-      document.getElementById("services-title").textContent = t.servicesTitle;
-
-      const list = document.getElementById("services-list");
-      list.innerHTML = "";
-      t.servicesItems.forEach(item => {
-        const li = document.createElement("li");
-        li.innerHTML = item;
-        list.appendChild(li);
-      });
-    }
-
-    // Default language
-    setLanguage('en');
-  </script>
 </body>
+
 </html>
