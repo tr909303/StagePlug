@@ -11,14 +11,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <style>
     @media (max-width: 640px) {
-      .video-bg {
-        height: auto;
-      }
-
-      .content {
-        max-width: 100%;
-      }
-
       .btn {
         width: 100%;
       }
@@ -31,66 +23,73 @@
 </head>
 
 <body class="bg-black text-white">
-  <main class="video-bg flex items-center justify-center min-h-screen relative">
-    <video src="background.mp4" loop autoplay muted playsinline class="absolute top-0 left-0 w-full h-full object-cover"></video>
+
+  <!-- BACKGROUND VIDEO -->
+  <div class="fixed top-0 left-0 w-full h-full -z-10">
+    <video src="background.mp4" loop autoplay muted playsinline class="w-full h-full object-cover"></video>
     <div class="absolute top-0 left-0 w-full h-full bg-black opacity-75"></div>
+  </div>
 
-    <nav class="absolute top-4 right-4 flex space-x-2" aria-label="Language selector">
-      <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-4 cursor-pointer" onclick="setLanguage('en')" />
-      <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="w-6 h-4 cursor-pointer" onclick="setLanguage('pt')" />
-      <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 cursor-pointer" onclick="setLanguage('es')" />
-    </nav>
+  <!-- LANGUAGE SELECTOR -->
+  <nav class="fixed top-4 right-4 z-30 flex space-x-2" aria-label="Language selector">
+    <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-4 cursor-pointer" onclick="setLanguage('en')" />
+    <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="w-6 h-4 cursor-pointer" onclick="setLanguage('pt')" />
+    <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 cursor-pointer" onclick="setLanguage('es')" />
+  </nav>
 
-    <section class="flex flex-col justify-center items-center h-full text-white relative px-6 md:px-12 lg:px-24 text-center w-full">
-      <img src="img/STAGEPLUG_logo_only.png" alt="StagePlug Logo" class="w-48 mb-6" />
-      <p class="text-lg text-center mb-8 tracking-wide uppercase text-gray-300">Your bridge to events, labels & artists — curated and managed for impact.</p>
+  <!-- FIXED MENU -->
+  <header class="fixed top-0 left-0 w-full z-20 flex flex-col items-center bg-black/70 backdrop-blur px-4 pt-6 pb-4">
+    <img src="img/STAGEPLUG_logo_only.png" alt="StagePlug Logo" class="w-32 mb-4" />
+    <div class="flex gap-4 md:flex-row flex-col btn-container justify-center items-center w-full text-center">
+      <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('services')">SERVICES</a>
+      <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('promotion')">PROMOTION</a>
+      <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('connect')">CONNECT</a>
+      <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('contact')">CONTACT</a>
+    </div>
+  </header>
 
-      <div class="flex gap-4 md:flex-row flex-col btn-container justify-center items-center w-full text-center">
-        <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('services')">SERVICES</a>
-        <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('promotion')">PROMOTION</a>
-        <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('connect')">CONNECT</a>
-        <a href="#" class="btn w-full md:w-auto text-lg px-8 py-3 rounded-full bg-white text-black hover:bg-gray-300 transition-all duration-300" onclick="showContent('contact')">CONTACT</a>
-      </div>
+  <!-- CONTENT SECTIONS -->
+  <main class="pt-64 flex flex-col items-center text-white px-6 md:px-12 lg:px-24 text-center w-full">
+    <p class="text-lg text-center mb-8 tracking-wide uppercase text-gray-300 max-w-xl">Your bridge to events, labels & artists — curated and managed for impact.</p>
 
-      <!-- CONTENT SECTIONS -->
-      <div class="content hidden mt-10 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="services-content">
-        <h2 class="text-xl font-bold mb-4">What do you need?</h2>
-        <ul class="list-disc list-inside mt-2">
-          <li><strong>Events:</strong> venue rental, technicians, bar staff</li>
-          <li><strong>Creative Content:</strong> photography, video, design</li>
-          <li><strong>Music Promotion:</strong> social media, press kits, playlist pitching</li>
-          <li><strong>Artists:</strong> DJs, performers, live acts</li>
-          <li><strong>Management & Support:</strong> bookers, legal, admin</li>
-        </ul>
-      </div>
+    <div class="content hidden mt-6 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="services-content">
+      <h2 class="text-xl font-bold mb-4">What do you need?</h2>
+      <ul class="list-disc list-inside mt-2 text-left">
+        <li><strong>Events:</strong> venue rental, technicians, bar staff</li>
+        <li><strong>Creative Content:</strong> photography, video, design</li>
+        <li><strong>Music Promotion:</strong> social media, press kits, playlist pitching</li>
+        <li><strong>Artists:</strong> DJs, performers, live acts</li>
+        <li><strong>Management & Support:</strong> bookers, legal, admin</li>
+      </ul>
+    </div>
 
-      <div class="content hidden mt-10 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="promotion-content">
-        <h2 class="text-xl font-bold mb-4">Promote Your Music</h2>
-        <ul class="list-disc list-inside">
-          <li>Visual identity creation</li>
-          <li>Digital promotion (reels, teasers)</li>
-          <li>Social media management</li>
-          <li>Media outreach</li>
-        </ul>
-      </div>
+    <div class="content hidden mt-6 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="promotion-content">
+      <h2 class="text-xl font-bold mb-4">Promote Your Music</h2>
+      <ul class="list-disc list-inside text-left">
+        <li>Visual identity creation</li>
+        <li>Digital promotion (reels, teasers)</li>
+        <li>Social media management</li>
+        <li>Media outreach</li>
+      </ul>
+    </div>
 
-      <div class="content hidden mt-10 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="connect-content">
-        <h2 class="text-xl font-bold mb-4">Connect</h2>
-        <ul class="list-disc list-inside">
-          <li>Blog with tips</li>
-          <li>StagePlug announcements</li>
-          <li>Client stories and past projects</li>
-        </ul>
-      </div>
+    <div class="content hidden mt-6 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="connect-content">
+      <h2 class="text-xl font-bold mb-4">Connect</h2>
+      <ul class="list-disc list-inside text-left">
+        <li>Blog with tips</li>
+        <li>StagePlug announcements</li>
+        <li>Client stories and past projects</li>
+      </ul>
+    </div>
 
-      <div class="content hidden mt-10 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="contact-content">
-        <h2 class="text-xl font-bold mb-4">Get in Touch</h2>
-        <p>Email us at <a href="mailto:hello@stageplug.com" class="underline">hello@stageplug.com</a></p>
-      </div>
-    </section>
+    <div class="content hidden mt-6 p-6 border border-gray-300 rounded-xl bg-black/50 backdrop-blur-md shadow-lg max-w-2xl" id="contact-content">
+      <h2 class="text-xl font-bold mb-4">Get in Touch</h2>
+      <p>Email us at <a href="mailto:hello@stageplug.com" class="underline">hello@stageplug.com</a></p>
+    </div>
   </main>
 
-  <footer class="py-4 absolute bottom-0 w-full text-center text-gray-400">
+  <!-- FOOTER -->
+  <footer class="py-4 w-full text-center text-gray-400 mt-16">
     <div class="container mx-auto px-6">
       <div class="flex justify-center space-x-4">
         <a href="#" aria-label="Instagram" class="hover:text-white"><i class="fab fa-instagram"></i></a>
@@ -102,6 +101,7 @@
     </div>
   </footer>
 
+  <!-- SCRIPT -->
   <script>
     function showContent(contentType) {
       document.querySelectorAll('.content').forEach(el => el.classList.add('hidden'));
@@ -110,11 +110,10 @@
     }
 
     function setLanguage(lang) {
-      console.log(`Language selected: ${lang}`);
-      // Simulate language change with a toast or placeholder message
       alert(`Language switching for "${lang}" is coming soon!`);
     }
   </script>
+
 </body>
 
 </html>
