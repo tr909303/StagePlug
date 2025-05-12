@@ -5,22 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StagePlug</title>
+
+  <!-- Google Fonts: Rajdhani -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <style>
-    @font-face {
-      font-family: 'Resolve Sans W05 Black CN Italic';
-      src: url('https://example.com/fonts/ResolveSansW05-BlackCnIta.woff2') format('woff2');
-      font-weight: normal;
-      font-style: italic;
-    }
 
+  <style>
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Resolve Sans W05 Black CN Italic', sans-serif;
+      font-family: 'Rajdhani', sans-serif;
     }
 
     nav {
@@ -35,49 +34,84 @@
       padding-top: 40px;
       min-height: 100vh;
     }
+
+    video {
+      pointer-events: none;
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 1s ease-out forwards;
+    }
   </style>
 </head>
 
 <body class="bg-black text-white">
-  <!-- LANGUAGE SELECTOR -->
-  <div class="fixed top-4 right-4 z-50 flex space-x-2">
-    <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-4 cursor-pointer" onclick="setLanguage('en')">
-    <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="w-6 h-4 cursor-pointer" onclick="setLanguage('pt')">
-    <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 cursor-pointer" onclick="setLanguage('es')">
-  </div>
 
-  <!-- NAVIGATION -->
+  <!-- NAVIGATION COM BANDEIRAS -->
   <nav class="bg-black bg-opacity-80 backdrop-blur shadow-md py-4">
-    <div class="container mx-auto flex items-center justify-between px-6">
+    <div class="container mx-auto flex flex-wrap items-center justify-between px-6">
       <img src="img/STAGEPLUG_logo_only.png" alt="StagePlug Logo" class="w-28">
-      <ul class="flex space-x-6">
-        <li><a href="#services" class="text-white hover:text-gray-300">SERVICES</a></li>
-        <li><a href="#promotion" class="text-white hover:text-gray-300">PROMOTION</a></li>
-        <li><a href="#connect" class="text-white hover:text-gray-300">CONNECT</a></li>
-        <li><a href="#contact" class="text-white hover:text-gray-300">CONTACT</a></li>
-      </ul>
+
+      <div class="flex items-center space-x-6">
+        <ul class="flex space-x-6">
+          <li><a href="#services" class="text-white hover:text-gray-300">SERVICES</a></li>
+          <li><a href="#promotion" class="text-white hover:text-gray-300">PROMOTION</a></li>
+          <li><a href="#connect" class="text-white hover:text-gray-300">CONNECT</a></li>
+          <li><a href="#contact" class="text-white hover:text-gray-300">CONTACT</a></li>
+        </ul>
+        <!-- LANGUAGE FLAGS -->
+        <div class="flex space-x-2 ml-4">
+          <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-4 cursor-pointer" onclick="setLanguage('en')">
+          <img src="https://flagcdn.com/w40/pt.png" alt="Português" class="w-6 h-4 cursor-pointer" onclick="setLanguage('pt')">
+          <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-6 h-4 cursor-pointer" onclick="setLanguage('es')">
+        </div>
+      </div>
     </div>
   </nav>
 
-  <!-- VIDEO BACKGROUND -->
-  <div class="absolute top-0 left-0 w-full h-full -z-10">
-    <video src="background.mp4" autoplay loop muted class="object-cover w-full h-full brightness-50"></video>
+  <!-- VIDEO BACKGROUND COM OVERLAY -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <video
+      class="w-full h-full object-cover brightness-100"
+      src="background.mp4"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    ></video>
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
   </div>
 
-  <!-- TAGLINE -->
-  <header class="pt-40 text-center px-6">
-    <h1 id="tagline" class="text-2xl max-w-2xl mx-auto text-white drop-shadow-lg">Your bridge to events, labels & artists — curated and managed for impact.</h1>
+  <!-- TAGLINE COM LOGO AO CENTRO -->
+  <header class="relative z-10 pt-40 text-center px-6">
+    <img src="img/STAGEPLUG_logo_only.png" alt="StagePlug Logo" class="mx-auto mb-6 w-24 sm:w-32 md:w-40 opacity-0 animate-fade-in">
+    <h1 id="tagline" class="text-2xl max-w-2xl mx-auto text-white drop-shadow-lg">
+      Your bridge to events, labels & artists — curated and managed for impact.
+    </h1>
   </header>
 
   <!-- SECTIONS -->
-  <section id="services" class="px-6">
+  <section id="services" class="relative z-10 px-6">
     <div class="max-w-2xl mx-auto bg-black bg-opacity-80 p-6 rounded-xl text-white shadow-lg">
       <h2 id="services-title" class="text-xl font-bold mb-4">What do you need?</h2>
       <ul id="services-list" class="list-disc list-inside"></ul>
     </div>
   </section>
 
-  <section id="promotion" class="px-6">
+  <section id="promotion" class="relative z-10 px-6">
     <div class="max-w-2xl mx-auto bg-black bg-opacity-80 p-6 rounded-xl text-white shadow-lg">
       <h2 class="text-xl font-bold mb-4">Promote Your Music</h2>
       <ul class="list-disc list-inside">
@@ -89,7 +123,7 @@
     </div>
   </section>
 
-  <section id="connect" class="px-6">
+  <section id="connect" class="relative z-10 px-6">
     <div class="max-w-2xl mx-auto bg-black bg-opacity-80 p-6 rounded-xl text-white shadow-lg">
       <h2 class="text-xl font-bold mb-4">Connect</h2>
       <ul class="list-disc list-inside">
@@ -100,7 +134,7 @@
     </div>
   </section>
 
-  <section id="contact" class="px-6">
+  <section id="contact" class="relative z-10 px-6">
     <div class="max-w-2xl mx-auto bg-black bg-opacity-80 p-6 rounded-xl text-white shadow-lg">
       <h2 class="text-xl font-bold mb-4">Get in Touch</h2>
       <p>Email us at <a href="mailto:hello@stageplug.com" class="underline">hello@stageplug.com</a></p>
@@ -108,7 +142,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="text-center py-6 text-gray-400">
+  <footer class="relative z-10 text-center py-6 text-gray-400">
     <div class="flex justify-center space-x-4">
       <a href="#" aria-label="Instagram" class="hover:text-white"><i class="fab fa-instagram"></i></a>
       <a href="#" aria-label="SoundCloud" class="hover:text-white"><i class="fab fa-soundcloud"></i></a>
